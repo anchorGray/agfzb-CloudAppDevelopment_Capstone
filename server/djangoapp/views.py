@@ -86,7 +86,7 @@ def registration_request(request):
 def get_dealerships(request):
     if request.method == "GET":
         context = {}
-        url = "https://2c3b9f46-1992-4d04-88b7-097a3b32708b-bluemix.cloudantnosqldb.appdomain.cloud/dealerships"
+        url = "https://2c3b9f46-1992-4d04-88b7-097a3b32708b-bluemix.cloudantnosqldb.appdomain.cloud/dealerships/dealerships"
         # Get dealers from the URL
         dealerships = get_dealers_from_cf(url)
         context["dealerships"] = dealerships
