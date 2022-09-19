@@ -89,7 +89,7 @@ def get_dealerships(request):
         url = "https://us-south.functions.appdomain.cloud/api/v1/web/DreamBoat_djangoserver-space/dealership-package/dealerships"
         # Get dealers from the URL
         dealerships = get_dealers_from_cf(url)
-        context["dealerships"] = dealerships
+        context["dealership_list"] = dealerships
         return render(request, 'djangoapp/index.html', context)
 
 
