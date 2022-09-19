@@ -25,7 +25,7 @@ def get_request(url, **kwargs):
         print("Network exception occurred")
     return json_data
 
-
+#
 # Create a `post_request` to make HTTP POST requests
 def post_request(url, json_payload, **kwargs):
     try:
