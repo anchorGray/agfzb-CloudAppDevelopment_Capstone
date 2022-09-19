@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, render, redirect
-# from .models import related models
-# from .restapis import related methods
+from .models import related models
+from .restapis import related methods
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from datetime import datetime
@@ -85,32 +85,33 @@ def registration_request(request):
 # Update the `get_dealerships` view to render the index page with a list of dealerships
 def get_dealerships(request):
     if request.method == "GET":
-        context = {}
-        url = "https://7dc9cbcd.us-south.apigw.appdomain.cloud/capstone/get_dealerships"
+        url = "https://2c3b9f46-1992-4d04-88b7-097a3b32708b-bluemix.cloudantnosqldb.appdomain.cloud/get_dealerships"
         # Get dealers from the URL
         dealerships = get_dealers_from_cf(url)
-        context["dealerships"] = dealerships
-        return render(request, 'djangoapp/index.html', context)
+        # Concat all dealer's short name
+        dealer_names = ' '.join([dealer.short_name for dealer in dealerships])
+        # Return a list of dealer short name
+        return HttpResponse(dealer_names)
 
 
 # Create a `get_dealer_details` view to render the reviews of a dealer
 def get_dealer_details(request, dealer_id):
-    url = "https://7dc9cbcd.us-south.apigw.appdomain.cloud/capstone/reviews"
+    url = "https://2c3b9f46-1992-4d04-88b7-097a3b32708b-bluemix.cloudantnosqldb.appdomain.cloud/reviews"
     context = {}
     params=dict()
     params["dealership"] = dealer_id
     dealer_details = get_dealer_reviews_from_cf(url,kwargs=params)
     context["dealer_details"] = dealer_details
     context["dealer_id"] = dealer_id
-    context["dealer_name"] = get_dealers_from_cf("https://7dc9cbcd.us-south.apigw.appdomain.cloud/capstone/get_dealerships")[dealer_id-1].full_name
+    context["dealer_name"] = get_dealers_from_cf("https://2c3b9f46-1992-4d04-88b7-097a3b32708b-bluemix.cloudantnosqldb.appdomain.cloud/get_dealerships")[dealer_id-1].full_name
     return render(request, 'djangoapp/dealer_details.html', context)
 
 
 # Create a `add_review` view to submit a review
 def add_review(request, dealer_id):
-    url = "https://7dc9cbcd.us-south.apigw.appdomain.cloud/capstone/reviews"
+    url = "https://2c3b9f46-1992-4d04-88b7-097a3b32708b-bluemix.cloudantnosqldb.appdomain.cloud/reviews"
     if request.method == 'GET':
-        url = "https://7dc9cbcd.us-south.apigw.appdomain.cloud/capstone/get_dealerships"
+        url = "https://2c3b9f46-1992-4d04-88b7-097a3b32708b-bluemix.cloudantnosqldb.appdomain.cloud/get_dealerships"
         context = {}
         context["dealer_id"] = dealer_id
         context["dealer_name"] = get_dealers_from_cf(url)[dealer_id-1].full_name
