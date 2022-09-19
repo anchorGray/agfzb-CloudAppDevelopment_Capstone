@@ -57,11 +57,12 @@ class CarModel(models.Model):
 # <HINT> Create a plain Python class `DealerReview` to hold review data
 
     def __str__(self):
-        return "Name: " + self.name 
-                "Make: " + self.car_make + \
-                "Dealer ID: " + self.dealer_id + \
-                "Type: " + self._type + \
-                "Year: " + self.year
+        return
+        "Name: " + self.name
+        "Make: " + self.car_make + \
+        "Dealer ID: " + self.dealer_id + \
+        "Type: " + self._type + \
+        "Year: " + self.year
 
 class CarDealer:
 
