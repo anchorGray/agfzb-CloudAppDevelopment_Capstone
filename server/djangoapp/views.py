@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, render, redirect
-from .models import related models
-from .restapis import related methods
+from .models import CarMake, CarModel, CarDealer
+from .restapis import get_dealers_from_cf, get_request, get_dealer_reviews_from_cf, post_request
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from datetime import datetime
@@ -86,7 +86,7 @@ def registration_request(request):
 def get_dealerships(request):
     if request.method == "GET":
         context = {}
-        url = "https://us-south.functions.appdomain.cloud/api/v1/web/DreamBoat_djangoserver-space/dealership-package/dealerships"
+        url = "https://2c3b9f46-1992-4d04-88b7-097a3b32708b-bluemix.cloudantnosqldb.appdomain.cloud/dealership-package/dealerships"
         # Get dealers from the URL
         dealerships = get_dealers_from_cf(url)
         context["dealership_list"] = dealerships
