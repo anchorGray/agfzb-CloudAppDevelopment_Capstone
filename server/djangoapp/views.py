@@ -86,7 +86,7 @@ def registration_request(request):
 def get_dealerships(request):
     if request.method == "GET":
         context = {}
-        url = "https://2c3b9f46-1992-4d04-88b7-097a3b32708b-bluemix.cloudantnosqldb.appdomain.cloud/dealerships"
+        url = "https://us-south.functions.appdomain.cloud/api/v1/web/DreamBoat_djangoserver-space/dealership-package/dealerships"
         # Get dealers from the URL
         dealerships = get_dealers_from_cf(url)
         context["dealership_list"] = dealerships
@@ -102,15 +102,15 @@ def get_dealer_details(request, dealer_id):
     dealer_details = get_dealer_reviews_from_cf(url,kwargs=params)
     context["dealer_details"] = dealer_details
     context["dealer_id"] = dealer_id
-    context["dealer_name"] = get_dealers_from_cf("https://2c3b9f46-1992-4d04-88b7-097a3b32708b-bluemix.cloudantnosqldb.appdomain.cloud/get_dealerships")[dealer_id-1].full_name
+    context["dealer_name"] = get_dealers_from_cf("https://us-south.functions.appdomain.cloud/api/v1/web/DreamBoat_djangoserver-space/dealership-package/dealerships")[dealer_id-1].full_name
     return render(request, 'djangoapp/dealer_details.html', context)
 
 
 # Create a `add_review` view to submit a review
 def add_review(request, dealer_id):
-    url = "https://2c3b9f46-1992-4d04-88b7-097a3b32708b-bluemix.cloudantnosqldb.appdomain.cloud/reviews"
+    url = "https://us-south.functions.appdomain.cloud/api/v1/web/DreamBoat_djangoserver-space/dealership-package/get-reviews"
     if request.method == 'GET':
-        url = "https://2c3b9f46-1992-4d04-88b7-097a3b32708b-bluemix.cloudantnosqldb.appdomain.cloud/get_dealerships"
+        url = "https://us-south.functions.appdomain.cloud/api/v1/web/DreamBoat_djangoserver-space/dealership-package/dealerships"
         context = {}
         context["dealer_id"] = dealer_id
         context["dealer_name"] = get_dealers_from_cf(url)[dealer_id-1].full_name
