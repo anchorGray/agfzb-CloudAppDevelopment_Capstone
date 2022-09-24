@@ -47,7 +47,7 @@ def get_dealers_from_cf(url):
     results = []
     json_result = get_request(url)
     if json_result:
-        dealers = json_result["body"]
+        dealers = json_result["id"]
         for dealer in dealers:
             dealer_doc = dealer["doc"]
             dealer_obj = CarDealer(
@@ -85,7 +85,7 @@ def get_dealers_by_st_from_cf(url, state):
     results = []
     json_result = get_request(url, st=state)
     if json_result:
-        dealers = json_result["body"]
+        dealers = json_result["id"]
         for dealer_doc in dealers:
             dealer_obj = CarDealer(
                 address=dealer_doc["address"],
