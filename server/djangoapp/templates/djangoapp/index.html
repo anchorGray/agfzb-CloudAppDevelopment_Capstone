@@ -32,21 +32,17 @@
                         <form class="form-inline" action="{% url 'djangoapp:login' %}" method="post">
                             {% csrf_token %}
                             <div class="input-group">
-                                <div>
+                                <div></div>
                                 <a class="btn btn-light" href="{% url 'djangoapp:about' %}">About</a>
-                                </div>
-                                <div>
+                                <div></div>
                                 <a class="btn btn-light" href="{% url 'djangoapp:contact' %}">Contact Us</a>
-                                </div>
-                                <div>
+                                <div></div>
                                 <input type="text" class="form-control" placeholder="Username" name="username" >
-                                </div>
-                                <div>
+                                <div></div>
                                 <input type="password" class="form-control" placeholder="Password" name="psw" >
-                                </div>
-                                <div>
+                                <div></div>
                                 <button class="btn btn-info" type="submit">Login</button>
-                                </div>
+                                <div></div>
                                 <a class="btn btn-light" href="{% url 'djangoapp:registration' %}">Sign Up</a>
                             </div>
                         </form>
