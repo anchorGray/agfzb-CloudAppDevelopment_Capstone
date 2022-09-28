@@ -47,7 +47,8 @@ def get_dealers_from_cf(url):
     results = []
     json_result = get_request(url)
     if json_result:
-        dealers = json_result["result"]
+        dealers = json_result
+        print('line 51 dealers RA', dealers)
         for dealer in dealers:
             dealer_doc = dealer["doc"]
             dealer_obj = CarDealer(
