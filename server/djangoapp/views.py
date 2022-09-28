@@ -31,7 +31,7 @@ def login_request(request):
     context = {}
     if request.method == "POST":
         username = request.POST['username']
-        password = request.POST['password']
+        password = request.POST['psw']
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
