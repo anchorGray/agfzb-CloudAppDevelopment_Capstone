@@ -40,19 +40,19 @@
     <br>
         <form action="{% url 'djangoapp:registration' %}" method="post">
             <div class="container"><center>
-                <h1><center>Sign Up</h1>
+                <h1>Sign Up</h1>
                 <hr>
                 <label for="username"><b>User Name</b></label><br>
-                <input type="text" placeholder="Enter User Name" name="username" required><center><br>
+                <input type="text" placeholder="Enter User Name" name="username" required><br>
                 <label for="firstname"><b>First Name</b></label><br>
-                <input type="text" placeholder="Enter First Name" name="firstname" required><center><br>
+                <input type="text" placeholder="Enter First Name" name="firstname" required><br>
                 <label for="lastname"><b>Last Name</b></label><br>
-                <input type="text" placeholder="Enter Last Name" name="lastname" required><center><br>
+                <input type="text" placeholder="Enter Last Name" name="lastname" required><br>
                 <label for="psw"><b>Password</b></label><br>
-                <input type="password" placeholder="Enter Password" name="psw" required><center><br>
+                <input type="password" placeholder="Enter Password" name="psw" required><br>
                 <div><br>
                     {% csrf_token %}
-                    <button class="button" type="submit"><center>Sign Up</button>
+                    <button class="button" type="submit">Sign Up</button>
                 </div>
             </div>
         </form>
