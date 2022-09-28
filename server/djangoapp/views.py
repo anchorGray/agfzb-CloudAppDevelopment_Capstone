@@ -55,7 +55,7 @@ def registration_request(request):
     elif request.method == 'POST':
         # Check if user exists
         username = request.POST['username']
-        password = request.POST['password']
+        password = request.POST['psw']
         first_name = request.POST['firstname']
         last_name = request.POST['lastname']
         user_exist = False
