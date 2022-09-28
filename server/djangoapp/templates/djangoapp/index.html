@@ -34,8 +34,10 @@
                             <div class="input-group">
                                 <a class="btn btn-light" href="{% url 'djangoapp:about' %}">About</a>
                                 <a class="btn btn-light" href="{% url 'djangoapp:contact' %}">Contact Us</a>
-                                <input type="text" class="form-control" placeholder="Username" name="username" >
-                                <input type="password" class="form-control" placeholder="Password" name="psw" >
+                                <div>
+                                    <input type="text" class="form-control" placeholder="Username" name="username" >
+                                    <input type="password" class="form-control" placeholder="Password" name="psw" >
+                                </div>    
                                 <button class="btn btn-info" type="submit">Login</button>
                                 <a class="btn btn-light" href="{% url 'djangoapp:registration' %}">Sign Up</a>
                             </div>
