@@ -117,7 +117,7 @@ def get_dealer_reviews_from_cf(url, **kwargs):
         reviews = json_result
 
         for dealer_review in reviews:
-            dealer_review = reviews
+            dealer_review = reviews["data"]
             
             review_obj = DealerReview(dealership=dealer_review["dealership"],
                                    name=dealer_review["name"],
