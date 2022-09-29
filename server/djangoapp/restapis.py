@@ -104,14 +104,14 @@ def get_dealers_by_st_from_cf(url, state):
             )
             results.append(dealer_obj)
     return results
-
+   
 def get_dealer_reviews_from_cf(url, **kwargs):
     results = []
-    id = kwargs
-    json_result = get_request(url, id=id)
+    id = kwargs['kwargs']['dealership']
+    json_result = get_request(url, dealerId=dealerId)
     if json_result:
         # Get the row list in JSON as dealers
-        reviews = json_result
+        reviews = json_result["body"]["data"]["docs"]
         # For each review object
         for review in reviews:
             review_obj = DealerReview(
