@@ -107,7 +107,7 @@ def get_dealers_by_st_from_cf(url, state):
    
 def get_dealer_reviews_from_cf(url, **kwargs):
     results = []
-    id = kwargs.get("dealership")
+    id = kwargs.get("id")
     if id:
         json_result = get_request(url, id=id)
     else:
@@ -119,7 +119,7 @@ def get_dealer_reviews_from_cf(url, **kwargs):
         for dealer_review in reviews:
             dealer_review = reviews
             
-            review_obj = DealerReview(dealership=dealer_review["id"],
+            review_obj = DealerReview(dealership=dealer_review["dealership"],
                                    name=dealer_review["name"],
                                    purchase=dealer_review["purchase"],
                                    review=dealer_review["review"])
