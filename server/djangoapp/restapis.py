@@ -66,6 +66,7 @@ def get_dealers_from_cf(url):
     return results
 
 def get_dealer_by_id_from_cf(url, id):
+    results = []
     json_result = get_request(url, id=id)
     if json_result:
         dealers = json_result
@@ -81,6 +82,7 @@ def get_dealer_by_id_from_cf(url, id):
                 st=dealer_doc["st"],
                 zip=dealer_doc["zip"]
             )
+            results.append(dealer_obj)
     return results
    
 def get_dealers_by_st_from_cf(url, state):
