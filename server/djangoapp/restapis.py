@@ -119,7 +119,7 @@ def get_dealer_reviews_from_cf(url, **kwargs):
         for dealer_review in reviews:
             dealer_review = reviews
             
-            review_obj = DealerReview(dealership=dealer_review,
+            review_obj = DealerReview(dealership=dealer_review[],
                                    name=dealer_review["name"],
                                    purchase=dealer_review["purchase"],
                                    review=dealer_review["review"])
