@@ -110,9 +110,9 @@ def get_dealer_reviews_from_cf(url, **kwargs):
     json_result = get_request(url, id=id)
     if json_result:
         # Get the row list in JSON as dealers
-        reviews = json_result
+        dealers = json_result
         # For each review object
-        for review in reviews:
+        for dealers in reviews:
             dealer_doc = dealer["doc"]
             review_obj = DealerReview(
                 dealership=review["dealership"],
