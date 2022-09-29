@@ -70,19 +70,20 @@ def get_dealer_by_id_from_cf(url, id):
     if json_result:
         dealer_doc = json_result
         for dealer_doc in dealers:
-        dealer_obj = CarDealer(
-            address=dealer_doc["address"],
-            city=dealer_doc["city"],
-            full_name=dealer_doc["full_name"],
-            id=dealer_doc["id"],
-            lat=dealer_doc["lat"],
-            long=dealer_doc["long"],
-            short_name=dealer_doc["short_name"],
-            st=dealer_doc["st"],
-            zip=dealer_doc["zip"]
-        )
-        results.append(dealer_obj)
-return results
+            dealer_obj = CarDealer(
+                address=dealer_doc["address"],
+                city=dealer_doc["city"],
+                full_name=dealer_doc["full_name"],
+                id=dealer_doc["id"],
+                lat=dealer_doc["lat"],
+                long=dealer_doc["long"],
+                short_name=dealer_doc["short_name"],
+                st=dealer_doc["st"],
+                zip=dealer_doc["zip"]
+            )
+            results.append(dealer_obj)
+    return results
+   
 def get_dealers_by_st_from_cf(url, state):
     results = []
     json_result = get_request(url, st=state)
